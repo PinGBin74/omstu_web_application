@@ -34,7 +34,8 @@ dependencies = [
     "aiohttp (>=3.12.15,<4.0.0)",
     "google-auth (>=2.40.3,<3.0.0)",
     "pyotp (>=2.9.0,<3.0.0)",
-    "greenlet (>=3.2.4,<4.0.0)"
+    "greenlet (>=3.2.4,<4.0.0)",
+    "aio-pika (>=9.5.7,<10.0.0)"
 ]
 
 [build-system]
