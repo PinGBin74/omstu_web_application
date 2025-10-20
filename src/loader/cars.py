@@ -527,7 +527,7 @@ async def main():
     async with engine.begin() as conn:
         cars = await get_cars_table(conn, metadata)
         for car in cars_json:
-            dealer_id = random.randint(38, 74)
+            dealer_id = random.randint(1, 37)
             await conn.execute(
                 cars.insert().values(
                     firm=car["firm"],
