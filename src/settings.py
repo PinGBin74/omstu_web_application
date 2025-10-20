@@ -16,6 +16,9 @@ class Settings(BaseSettings):
     DB_NAME: str = ""
     DATABASE_URL: str = ""
 
+    # RabbitMQ settings
+    rabbitmq_url: str = "amqp://guest:guest@localhost:5672/"
+
     # JWT settings
     JWT_SECRET_KEY: str = ""
     JWT_ENCODE_ALGORITHM: str = ""

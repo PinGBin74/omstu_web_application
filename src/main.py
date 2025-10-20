@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 
+from src.cars.handlers import router as cars_router
+from src.dealer.handlers import router as dealers_router
 from src.settings import Settings
 
 settings = Settings()
@@ -31,3 +33,7 @@ app.add_middleware(
 @app.get("/")
 async def root():
     return RedirectResponse(url="/docs")
+
+
+app.include_router(cars_router)
+app.include_router(dealers_router)
