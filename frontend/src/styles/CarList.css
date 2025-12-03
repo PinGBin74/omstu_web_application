@@ -1,0 +1,28 @@
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Адаптивная сетка для разных размеров экрана */
+@media (max-width: 1200px) {
+    .cars-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cars-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cars-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
