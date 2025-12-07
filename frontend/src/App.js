@@ -14,7 +14,6 @@ function App() {
     const [connectionStatus, setConnectionStatus] = useState('Проверка соединения...');
 
     useEffect(() => {
-        // Проверяем соединение с backend
         const checkConnection = async () => {
             try {
                 await checkHealth();
@@ -43,7 +42,6 @@ function App() {
             console.error('Error fetching cars:', err);
             setError(`Ошибка при загрузке автомобилей: ${err.message}`);
 
-            // Для отладки: используем моки, если API недоступен
             if (err.message.includes('Failed to fetch') || err.message.includes('Network')) {
                 setCars([
                     {

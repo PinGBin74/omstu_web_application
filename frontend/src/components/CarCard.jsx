@@ -5,7 +5,6 @@ import '../styles/CarCard.css';
 const CarCard = ({ car, onDelete, onUpdate }) => {
     const [showEditModal, setShowEditModal] = useState(false);
 
-    // Генерация изображения автомобиля на основе марки и модели
     const getCarImageUrl = () => {
         const searchQuery = `${car.firm}+${car.model}+car`;
         return `https://source.unsplash.com/featured/?${encodeURIComponent(searchQuery)}`;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Modal.css';
-import { getDealers } from '../services/api'; // Добавьте эту функцию
+import { getDealers } from '../services/api';
 
 const AddCarModal = ({ onSave, onClose }) => {
     const [formData, setFormData] = useState({
@@ -10,18 +10,15 @@ const AddCarModal = ({ onSave, onClose }) => {
         power: 100,
         color: 'Black',
         price: 0,
-        dealer_id: 1, // Используем существующий dealer_id
+        dealer_id: 1,
     });
     const [dealers, setDealers] = useState([]);
     const [loading, setLoading] = useState(false);
     const [loadingDealers, setLoadingDealers] = useState(true);
 
     useEffect(() => {
-        // Загружаем дилеров при монтировании компонента
         const loadDealers = async () => {
             try {
-                // Здесь должна быть функция getDealers в вашем API
-                // Для начала используем фиксированные значения
                 setDealers([
                     { id: 1, name: "АвтоМир" },
                     { id: 2, name: "СпортКар" },
@@ -50,7 +47,6 @@ const AddCarModal = ({ onSave, onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Валидация
         if (!formData.firm.trim() || !formData.model.trim()) {
             alert('Пожалуйста, заполните все обязательные поля');
             return;
@@ -80,7 +76,6 @@ const AddCarModal = ({ onSave, onClose }) => {
         try {
             await onSave(formData);
         } catch (error) {
-            // Ошибка обрабатывается в родительском компоненте
             console.error('Error in handleSubmit:', error);
         } finally {
             setLoading(false);

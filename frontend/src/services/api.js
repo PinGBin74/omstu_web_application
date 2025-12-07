@@ -1,6 +1,5 @@
 const API_BASE_URL = 'http://localhost:8000';
 
-// Функция для обработки ошибок
 const handleResponse = async (response) => {
     if (!response.ok) {
         const errorText = await response.text();
@@ -33,7 +32,7 @@ export const getCars = async () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            mode: 'cors', // Явно указываем режим CORS
+            mode: 'cors',
         });
         return await handleResponse(response);
     } catch (error) {
@@ -114,7 +113,6 @@ export const deleteCar = async (id) => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        // Для DELETE может не быть тела ответа
         if (response.status === 204 || response.headers.get('content-length') === '0') {
             return { success: true };
         }
@@ -126,7 +124,6 @@ export const deleteCar = async (id) => {
     }
 };
 
-// Функция для проверки соединения
 export const checkHealth = async () => {
     try {
         const response = await fetch(`${API_BASE_URL}/health`, {
