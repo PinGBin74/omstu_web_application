@@ -42,11 +42,16 @@ app.add_middleware(
 async def root():
     return RedirectResponse(url="/docs")
 
+
 @app.get("/health")
 async def health_check():
-    return {"status": "healthy", "message": "Backend is running", "version": "0.1.0"}
+    return {
+        "status": "healthy",
+        "message": "Backend is running",
+        "version": "0.1.0",
+    }
 
-# ДОБАВЬТЕ ЭТОТ ЭНДПОИНТ для тестирования CORS
+
 @app.options("/{full_path:path}")
 async def options_handler(full_path: str):
     """Handle OPTIONS requests for CORS preflight"""
